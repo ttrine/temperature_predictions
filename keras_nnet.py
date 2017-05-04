@@ -9,9 +9,9 @@ def construct():
 	model.add(Dense(20, activation='relu', input_dim=2))
 	model.add(Dense(30, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
 	model.add(Dense(40, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
-	model.add(Dense(30, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
-	model.add(Dense(20, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
-	model.add(Dense(20, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
+	model.add(Dense(30, activation='relu', kernel_regularizer=regularizers.l1_l2(0.2)))
+	model.add(Dense(20, activation='relu', kernel_regularizer=regularizers.l1_l2(0.2)))
+	model.add(Dense(20, activation='relu', kernel_regularizer=regularizers.l1_l2(0.2)))
 	model.add(Dense(20, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
 	model.add(Dense(20, activation='relu', kernel_regularizer=regularizers.l1_l2(0.1)))
 	model.add(Dense(1))
@@ -42,6 +42,7 @@ def run(dataset):
 
 	tmax_nans, tmin_nans = handle_nas(matrix)
 
+	print "Running training..."
 	min_interp = train(matrix, tmax_nans, tmin_nans)
 
 	# Switch y and z before predicting missing tmax values
@@ -59,7 +60,4 @@ if __name__ == '__main__':
 	dataset = sys.argv[1]
 
 	# Run against specified dataset
-	run(dataset)
-	run(dataset)
-	run(dataset)
 	run(dataset)
