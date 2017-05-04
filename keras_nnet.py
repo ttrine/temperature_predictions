@@ -28,7 +28,7 @@ def train(matrix, y_nans, z_nans):
 	test = matrix[z_nans]
 
 	model = construct()
-	model.fit(train[:,0:2], train[:,2], batch_size=len(train), epochs=1000, verbose=1)
+	model.fit(train[:,0:2], train[:,2], batch_size=len(train), epochs=1000, verbose=0)
 	
 	predictions = [e[0] for e in model.predict(test[:,0:2])]
 	return predictions
@@ -59,4 +59,7 @@ if __name__ == '__main__':
 	dataset = sys.argv[1]
 
 	# Run against specified dataset
+	run(dataset)
+	run(dataset)
+	run(dataset)
 	run(dataset)
